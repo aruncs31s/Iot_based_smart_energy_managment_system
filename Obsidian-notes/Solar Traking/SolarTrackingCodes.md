@@ -106,5 +106,5 @@ void loop()
 ```
 
 
-[File](./solarTrackingCode/Solar_tracking_using_arduino/Solar_tracking_using_arduino.md)
+[File](../../src/solarTrackingCode/Solar_tracking_using_arduino/Solar_tracking_using_arduino.md)
 [source](https://github.com/neeraj95575/Solar_tracker_using_arduino)

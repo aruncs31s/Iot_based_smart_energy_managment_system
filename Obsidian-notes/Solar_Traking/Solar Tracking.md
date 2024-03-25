@@ -1,6 +1,28 @@
-/* 
-Source : https://github.com/neeraj95575/Solar_tracker_using_arduino
-*/
+---
+id: Solar Tracking
+aliases: []
+tags: []
+---
+#Tasks 
+- [ ] Rotate The Solar Panel according to sunlight 
+- [ ] Measure the output voltage using esp32
+- [ ] 
+
+#Todos 
+
+
+# Solar Tracking
+
+#Defenition 
+ - [ ] *Tracks Sun and adjust the pannel position using stepper motor*
+
+#working
+- [LDR](../Iot_based_energy_managment.md#pir%20sensor) sensor
+
+
+
+#TestCode
+```c
 #include <Servo.h>
 
 Servo servohori; //horizontal servo(BOTTOM SERVO)
@@ -47,35 +69,35 @@ void loop()
   int avgleft = (topl + botl) / 2; //average of left LDRs
   int avgright = (topr + botr) / 2; //average of right LDRs
 
-  if (avgtop < avgbot)=
+  if (avgtop < avgbot)
   {
     servoverti.write(servov -1);
     if (servov > servovLimitHigh) 
-    { 
+     { 
       servov = servovLimitHigh;
-    }
+     }
     delay(8);
   }
   else if (avgbot < avgtop)
   {
     servoverti.write(servov +1);
     if (servov < servovLimitLow)
-    {
-      servov = servovLimitLow;
-    }
+  {
+    servov = servovLimitLow;
+  }
     delay(8);
   }
   else 
-{
+  {
     servoverti.write(servov);
   }
-
+  
   if (avgleft > avgright)
   {
     servohori.write(servoh -1);
     if (servoh > servohLimitHigh)
     {
-      servoh = servohLimitHigh;
+    servoh = servohLimitHigh;
     }
     delay(8);
   }
@@ -83,14 +105,22 @@ void loop()
   {
     servohori.write(servoh +1);
     if (servoh < servohLimitLow)
-    {
-      servoh = servohLimitLow;
-    }
+     {
+     servoh = servohLimitLow;
+     }
     delay(8);
   }
   else 
-{
+  {
     servohori.write(servoh); // write means run servo
   }
   delay(50);
 }
+
+```
+
+#WholeCode
+
+
+
+

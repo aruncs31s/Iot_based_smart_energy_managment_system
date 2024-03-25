@@ -1,20 +1,14 @@
 ---
-id: Solar Tracking
+id: Solar Tracking Codes
 aliases: []
 tags: []
 ---
 
-# Solar Tracking
+## Solar Tracking Codes
+- [Interfacing](../ESP32/ESP32.md#servo%20Interfacing)
 
-#Defenition
-#### Todos
- - [ ] *Tracks Sun and adjust the pannel position using stepper motor*
+- Initial Test Code for arduino
 
-#working
-- [LDR](../Iot_based_energy_managment.md#pir%20sensor) sensor
-
-
-#TestCode
 ```c
 #include <Servo.h>
 
@@ -109,11 +103,8 @@ void loop()
   }
   delay(50);
 }
-
 ```
 
-#WholeCode
 
-
-
-
+[File](../../src/solarTrackingCode/Solar_tracking_using_arduino/Solar_tracking_using_arduino.md)
+[source](https://github.com/neeraj95575/Solar_tracker_using_arduino)

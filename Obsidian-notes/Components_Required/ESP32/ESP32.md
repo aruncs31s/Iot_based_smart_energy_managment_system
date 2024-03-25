@@ -3,22 +3,78 @@ id: ESP32
 aliases: []
 tags: []
 ---
-
 ## ESP32
+- [Pinout](#esp32%20pinout)
+- [Specs](#esp32%20Specs)
 
-- [ESP32]()
-	- [Pinout](#esp32%20pinout)
-	- [Specs](#esp32%20Specs)
-	- [Notes]()
-### ESP Codes
+##### Introduction
+ESP32 is a series of low-cost, ==low-power system on a chip microcontrollers== with integrated ==Wi-Fi== and dual-mode ==Bluetooth==
+
+
+![Esp32|300x200](../../Images/esp32.png)
+
+---
+
+
+
+###### Esp32 Pinout
+
+
+![[esp32_pinout.png|600]]
+
+---
+
+
+##### Esp32 Specs
+
+- Single or Dual-Core ==32-bit== LX6 Microprocessor with clock frequency up to ==240 MHz==.
+- 520 KB of SRAM, 448 KB of ROM and 16 KB of RTC SRAM.
+- Supports 802.11 b/g/n Wi-Fi connectivity with speeds up to 150 Mbps.
+- Support for both Classic Bluetooth v4.2 and ==BLE== specifications.
+- ==34== Programmable GPIOs.
+- Up to 18 channels of ==12-bit SAR ADC== and 2 channels of ==8-bit DAC==
+- Serial Connectivity include 4 x ==SPI==, 2 x ==I2C==, 2 x ==I2S==, 3 x ==UART==.
+- Ethernet MAC for physical LAN Communication (requires external PHY).
+- 1 Host controller for SD/SDIO/MMC and 1 Slave controller for SDIO/SPI.
+- Motor PWM and up to 16-channels of LED PWM.
+- Secure Boot and Flash Encryption.
+- Cryptographic Hardware Acceleration for AES, Hash (SHA-2), RSA, ECC and RNG
+
+---
+
+##### Relay Module
+
+
+![RelayModule|300x200](./Images/relayModule.png)
+Relays are electro-mechanical switches that are used to control the flow of electricity in a circuit.
+- Relay Module provides `isolation` between ==Signal== and ==Load== 
+
+
+
+---
+##### PIR Sensor
+![PIR Sensor|300x200](./Images/PIR.png)
+- PIR sensors ==detect changes in infrared radiation== within their field of view, which occur when a person enters or moves within the sensor's detection range
+- PIR (passive infrared) sensors utilise the detection of infrared that is radiated from all objects that emit heat. This type of emission is not visible to the human eye, but sensors that operate using infrared wavelengths can detect such activity.
+
+
+---
+
+
+## ESP Codes
+
 #### Interfacing
 
 - [PIR Sensor](#pir%20interfacing)
 	- [Code](#codes)
 - [MultiThreding](#multithreding)
 - [Servo Motor](#servo%20motor)
+- [LDR Interfacing](./ESP32 Codes.md#ldr%20interfacing)
+
 #### Modified Code
-- [[SolarTrackingCodes]]
+
+- [[Solar Tracking Codes]]
+- [[Energy Management Codes]]
 
 ---
 
@@ -72,26 +128,6 @@ tags: []
 ---
 
 
-```c
-const int LDR_PIN = 36;
-
-void setup() {
-   // put your setup code here, to run once:
-   Serial.begin(115200);
-   analogReadResolution(10); //default is 12. Can be set between 9-12.
-}
-void loop() {
-   // put your main code here, to run repeatedly:
-   // LDR Resistance: 90k ohms
-   // Resistance in series: 150k ohms
-   // Pinouts:
-   // Vcc −> 3.3 (CONNECTED TO LDR FREE END)
-   // Gnd −> Gnd (CONNECTED TO RESISTOR FREE END)
-   // Analog Read −> Vp (36) − Intermediate between LDR and resistance. int LDR_Reading = analogRead(LDR_PIN);
-   float LDR_Voltage = ((float)LDR_Reading*3.3/1023);
-   Serial.print("Reading: ");Serial.print(LDR_Reading); Serial.print("\t");Serial.print("Voltage: ");Serial.println(LDR_Voltage);
-}
-````
 
 
 ----
@@ -183,7 +219,6 @@ void loop() {
 
 ### Servo Motor
 
-- Interfacing
 
 [Source](https://randomnerdtutorials.com/esp32-servo-motor-web-server-arduino-ide/)
 ![[Pasted image 20240322043007.png|300x150]]
